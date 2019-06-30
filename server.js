@@ -11,7 +11,7 @@ const server = express()
   .use((req, res) => res.sendFile(INDEX) )
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-const wss = new SocketServer({ server });
+const wss = new SocketServer({ server },() => console.log("socket up"));
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
